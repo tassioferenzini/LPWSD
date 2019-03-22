@@ -1,0 +1,67 @@
+@import url(http://fonts.googleapis.com/css?family=Jockey+One);
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+    margin: 0;
+}
+
+header {
+    background-image: url(images/shattered.png);
+}
+
+header h1 {
+    padding: 15px 10px;
+    font-family: "Jockey One", sans-serif;
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 40px;
+    text-shadow: 1px 1px 0 #333333;
+}
+
+.page-header {
+    margin: 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #DDD;
+}
+
+.ui-breadcrumb ul li a {
+    text-decoration: none;
+}
+
+.hide {
+    display: none;
+}
+
+.panelGridLabel {
+    text-align: right;
+    display: block;
+    font-weight: bold;
+}
+
+#main {
+    margin-bottom: 20px;
+}
+
+.btn-small {
+    font-size: .8em!important;
+}
+
+/* Prime Faces bug fixes caused by global box-sizing */
+.ui-selectonemenu .ui-selectonemenu-trigger {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
