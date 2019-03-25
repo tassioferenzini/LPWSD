@@ -1,0 +1,19 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <header>
+        <h1>LPWSD</h1>
+        <h:form>  
+            <p:menubar>
+                <p:menuitem value="Início" icon="ui-icon-home" url="/faces/index.xhtml" />
+
+                <p:submenu label="Gerenciar" icon="ui-icon-gear">
+                    <p:menuitem value="Assuntos" icon="ui-icon-person" url="/faces/assuntos.xhtml"/>
+                </p:submenu>
+            </p:menubar>
+        </h:form>
+    </header>
+</ui:composition>

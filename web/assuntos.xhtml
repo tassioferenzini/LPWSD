@@ -1,0 +1,110 @@
+<ui:composition template="/WEB-INF/templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <h2 class="page-header">Gerenciar Assuntos</h2>
+        <br/>
+        <h:form id="formPrincipal">
+            <div align="center">
+                
+                <p:dataTable var="lista" value="#{assuntoBean.assuntos}"
+                             id="tabelaAssunto" emptyMessage="Nenhum registro encontrado"
+                             paginatorTemplate="{RowsPerPageDropdown} {CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                             paginator="true" rows="10" rowsPerPageTemplate="5,10,25,50,100,9999" style="width:100%">
+
+                    <p:column headerText="Código" sortBy="#{lista.idtbAssunto}" filterBy="#{lista.idtbAssunto}">
+                        <h:outputText value="#{lista.idtbAssunto}" />
+                    </p:column>
+                    
+                    <p:column headerText="Nome" sortBy="#{lista.nomeAssunto}" filterBy="#{lista.nomeAssunto}">
+                        <h:outputText value="#{lista.nomeAssunto}" />
+                    </p:column>
+
+                    <p:column headerText="Descrição" sortBy="#{lista.descricaoAssunto}" filterBy="#{lista.descricaoAssunto}">
+                        <h:outputText value="#{lista.descricaoAssunto}" />
+                    </p:column>
+                    
+                    <p:column headerText="Assunto" sortBy="#{lista.assunto}" filterBy="#{lista.assunto}">
+                        <h:outputText value="#{lista.assunto}" />
+                    </p:column>
+                    
+                    <p:column headerText="Opções" exportable="false">
+                        <center>
+                            
+                            <p:commandButton icon="ui-icon-pencil" value="Editar" onclick="PF('record').show();"> 
+                                <f:setPropertyActionListener target="#{assuntoBean.assunto}" value="#{lista}" />
+                            </p:commandButton>
+                            
+                            <p:commandButton icon="ui-icon-trash" value="Deletar" onclick="PF('remove').show();"> 
+                                <f:setPropertyActionListener target="#{assuntoBean.assunto}" value="#{lista}" />
+                            </p:commandButton> 
+                        
+                        </center>
+                    </p:column>
+
+                </p:dataTable>
+            </div>
+            <br/>
+            
+            <p:column>
+                <p:commandButton icon="ui-icon-plus" value="Novo" onclick="PF('record').show();">  
+                </p:commandButton> 
+            </p:column>
+            
+            <div align="center">
+                <h3>Exportar dados da página</h3>
+
+                <h:commandLink id="excel">
+                    <p:graphicImage name="./images/exports/excel.png" />
+                    <p:dataExporter type="xls" target="tabelaAssunto" fileName="assuntos" postProcessor="#{assuntoBean.postProcessXLS}" />
+                </h:commandLink>
+
+                <h:commandLink id="pdf">
+                    <p:graphicImage name="./images/exports/pdf.png" />
+                    <p:dataExporter type="pdf" target="tabelaAssunto" fileName="assuntos" preProcessor="#{assuntoBean.preProcessPDF}" />
+                </h:commandLink>
+
+
+                <h:commandLink>
+                    <p:graphicImage name="./images/exports/csv.png" width="24"/>
+                    <p:dataExporter type="csv" target="tabelaAssunto" fileName="assuntos" />
+                </h:commandLink>
+
+                <h:commandLink>
+                    <p:graphicImage  name="./images/exports/xml.png" width="24"/>
+                    <p:dataExporter type="xml" target="tabelaAssunto" fileName="assuntos" />
+                </h:commandLink>
+            </div>
+
+            <p:confirmDialog global="true">  
+                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />  
+                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />  
+            </p:confirmDialog>  
+
+
+            <p:dialog header="Novo" widgetVar="record" modal="true" focus="name">
+                <p:panelGrid id="panelRecord" columns="2"> 
+                    <!--Código:
+                    <p:inputText id="cod" value="#{assuntoBean.assunto.idtbAssunto}" /-->
+                    Nome:
+                    <p:inputText id="name" value="#{assuntoBean.assunto.nomeAssunto}" />
+                    Descrição:
+                    <p:inputText id="descricaoAssunto" value="#{assuntoBean.assunto.descricaoAssunto}" />
+                    Assunto:
+                    <p:inputText id="Assunto" value="#{assuntoBean.assunto.assunto}" />
+                </p:panelGrid>  
+                <br/>
+                <p:commandButton value="Salvar" actionListener="#{assuntoBean.record}" onclick="record.hide()" alt="Record"/> 
+            </p:dialog>
+            
+            <p:dialog header="Deletar" widgetVar="remove" modal="false"> 
+                Você tem certeza?
+                <p:commandButton value="Deletar" actionListener="#{assuntoBean.exclude}" onclick="remove.hide()" alt="Delete" /> 
+            </p:dialog>
+            
+        </h:form>
+    </ui:define>
+</ui:composition>
