@@ -1,0 +1,4 @@
+CREATE DATABASE dbtassio;
+CREATE USER 'utassio'@'%' IDENTIFIED BY 'ptassio';
+GRANT ALL PRIVILEGES ON dbtassio.* TO  'utassio'@'%';
+FLUSH PRIVILEGES;
