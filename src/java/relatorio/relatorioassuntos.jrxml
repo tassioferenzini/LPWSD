@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioassuntos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79650c35-a7c5-42a8-affc-9e373d149390">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[select * from `LPWSD`.`tbAssunto`]]>
+	</queryString>
+	<field name="idtbAssunto" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="idtbAssunto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbassunto"/>
+	</field>
+	<field name="nomeAssunto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nomeAssunto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbassunto"/>
+	</field>
+	<field name="descricaoAssunto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="descricaoAssunto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbassunto"/>
+	</field>
+	<field name="assunto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="assunto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbassunto"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="120" y="0" width="380" height="50" uuid="1b25ef91-be90-41ec-a874-670f565a9be0"/>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Assuntos do sistema LPWSD]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="50" height="50" uuid="0f550c32-f3b4-4f5f-aaa6-21c3ebc6da89"/>
+				<imageExpression><![CDATA["/Users/tassio/Pictures/perfil/pequena.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="10" y="0" width="100" height="30" uuid="f7b58ed1-b007-44f5-9d04-d7587161d42c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="40" height="30" uuid="da8b1861-c5ba-4c70-b57f-25e48057f652">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21ad71bc-9223-457c-a3cf-e1579fef756d"/>
+				</reportElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="1" width="90" height="30" uuid="68a71193-581b-4d76-a8ba-f9ac6c12f2bb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1336b54e-624a-4875-8114-22d9f544d0c9"/>
+				</reportElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="287" height="30" uuid="d4dfaeb6-b12c-40fb-a07a-75b5917ca790">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e1cb7e71-ca86-4a41-b73e-0d57369061ec"/>
+				</reportElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="417" y="0" width="138" height="30" uuid="a9a15dd1-f133-45d9-8a3b-0ab568a5497d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01853216-e7b7-435e-91a4-bde4f90c4cf4"/>
+				</reportElement>
+				<text><![CDATA[Assunto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="40" height="30" uuid="a6d0c255-1370-4c06-a52d-c17343db9b1a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21ad71bc-9223-457c-a3cf-e1579fef756d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{idtbAssunto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="0" width="90" height="30" uuid="3162022a-a24a-43b1-85d8-c4db6f1d2d2f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1336b54e-624a-4875-8114-22d9f544d0c9"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nomeAssunto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="287" height="30" uuid="5078f0e9-3d21-4fd4-9d27-2a7d53e31aaf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e1cb7e71-ca86-4a41-b73e-0d57369061ec"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{descricaoAssunto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="417" y="0" width="138" height="30" uuid="38a43783-2857-427f-a4b1-bf2677dc0231">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01853216-e7b7-435e-91a4-bde4f90c4cf4"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{assunto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="179" y="0" width="100" height="30" uuid="eb181dff-95c2-4172-afc9-4c4cbe736e3d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="279" y="0" width="100" height="30" uuid="8dbb5426-f810-4389-a7b9-7606df439e22"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

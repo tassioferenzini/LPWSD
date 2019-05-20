@@ -52,6 +52,7 @@
             <p:column>
                 <p:commandButton icon="ui-icon-plus" value="Novo" onclick="PF('record').show();">  
                 </p:commandButton> 
+                <p:commandButton value="Relatório" action="#{assuntoBean.gerarRelatorioAction()}" ajax="false" onclick="this.form.target='_blank'"/>
             </p:column>
             
             <div align="center">

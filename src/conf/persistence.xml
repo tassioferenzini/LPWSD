@@ -10,6 +10,7 @@
     <class>Modelo.TbAutores</class>
     <class>Modelo.TbEditora</class>
     <class>Modelo.TbEmprestimo</class>
+    <class>relatorios.GeradorDeRelatorios</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="eclipselink.ddl-generation.output-mode" value="database"/>

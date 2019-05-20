@@ -26,6 +26,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
+import relatorio.Relatorio;
 
 /**
  *
@@ -44,7 +45,7 @@ public class assuntoBean {
         assuntos = new AssuntoDAO().buscarTodas();
         assunto = new TbAssunto();
     }
-
+    
     //Métodos dos botões 
     public void record(ActionEvent actionEvent) {
         new AssuntoDAO().persistir(assunto);
@@ -98,6 +99,11 @@ public class assuntoBean {
 
         ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
 
+    }
+    
+    public void gerarRelatorioAction() {
+        Relatorio relatorio = new Relatorio();
+        relatorio.getRelatorio();
     }
 
 }
